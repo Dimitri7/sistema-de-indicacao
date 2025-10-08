@@ -1,11 +1,16 @@
-Sistema de Indicação (Referral System)
-!(((https://www.google.com/search?q=https://img.shields.io/badge/license-MIT-blue.svg)))
-!(((https://www.google.com/search?q=https://img.shields.io/badge/status-conclu%25C3%25ADdo-brightgreen)))
+# Sistema de Indicação (Referral System)
 
-Uma aplicação web de página única (SPA) construída do zero, que implementa um sistema de cadastro de usuários e pontuação por indicação. Este projeto foi desenvolvido como parte de um desafio técnico.
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Status](https://img.shields.io/badge/status-concluído-brightgreen)
 
-📸 Screenshot
-!(./dashboard.png)
+Uma aplicação web de página única (SPA) construída do zero, que implementa um sistema de cadastro de usuários e pontuação por indicação.  
+Este projeto foi desenvolvido como parte de um desafio técnico.
+
+---
+
+## 📸 Screenshot
+![Dashboard](./dashboard.png)
+
 
 🎯 Funcionalidades
 Página de Cadastro: Formulário para registro de novos usuários com validação no front-end.
@@ -88,7 +93,7 @@ Debugging Interativo: Enfrentei diversos erros durante o processo (git não é r
 
 Aprendizado: A interação com a IA foi como ter um programador sênior ao meu lado, disponível 24/7. Aprendi não apenas a resolver os problemas, mas a entender o porquê das soluções, o que solidificou meu conhecimento em todo o ciclo de desenvolvimento full-stack.
 
-👨‍💻 Autor
+👨‍💻 Autor:
 Feito com ❤️ por Dimitri Albuquerque
 
 GitHub:(https://github.com/Dimitri7)
