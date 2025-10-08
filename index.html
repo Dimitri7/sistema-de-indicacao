@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Indicação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+
+        <section id="login-view" class="view active">
+            <h2>Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Senha</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button type="submit">Entrar</button>
+                <p class="form-switch">Não tem uma conta? <a href="#" id="show-register">Cadastre-se</a></p>
+            </form>
+        </section>
+
+        <section id="register-view" class="view">
+            <h2>Cadastro</h2>
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="register-username">Nome de Usuário</label>
+                    <input type="text" id="register-username" required>
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" required>
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Senha</label>
+                    <input type="password" id="register-password" minlength="8" required>
+                    <small class="error-message"></small>
+                </div>
+                <div class="form-group">
+                    <label for="register-referral">Código de Indicação (Opcional)</label>
+                    <input type="text" id="register-referral">
+                </div>
+                <button type="submit">Cadastrar</button>
+                <p class="form-switch">Já tem uma conta? <a href="#" id="show-login">Faça login</a></p>
+            </form>
+        </section>
+
+        <section id="dashboard-view" class="view">
+            <div id="dashboard-content">
+                <h2>Seu Dashboard</h2>
+                <p>Bem-vindo, <strong id="dash-username">Usuário</strong>!</p>
+                
+                <div class="dashboard-metric">
+                    <h3>Seus Pontos</h3>
+                    <p id="dash-points" class="points">0</p>
+                </div>
+
+                <div class="dashboard-metric">
+                    <h3>Seu Link de Indicação</h3>
+                    <div class="referral-box">
+                        <input type="text" id="dash-referral-link" readonly>
+                        <button id="copy-button">Copiar</button>
+                    </div>
+                </div>
+                
+                <button id="logout-button">Sair</button>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
