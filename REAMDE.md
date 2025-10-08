@@ -13,16 +13,6 @@ Uma aplicação **SPA (Single Page Application)** construída do zero, que imple
 
 ---
 
-## 🌐 Demo Online
-
-Você pode testar a aplicação ao vivo no link abaixo:
-
-**[➡️ Acessar a Demo](URL_DA_SUA_DEMO_AQUI)**
-
-*(Pode levar alguns segundos para o servidor da demo iniciar após o primeiro acesso.)*
-
----
-
 ## 🎯 Funcionalidades Principais
 
 -   **Cadastro de Usuários:** Formulário para registro de novos usuários com validação de dados no front-end.
