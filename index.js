@@ -1,7 +1,7 @@
 // index.js
 const express = require('express');
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 const db = require('./db/database.js');
 const cors = require('cors');
 
@@ -18,7 +18,12 @@ app.get('/', (req, res) => {
 const userRoutes = require('./routes/userRoutes');
 app.use('/api/users', userRoutes);
 
-// Liga o servidor e o faz "escutar" na porta definida
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+// Liga o servidor só quando o arquivo é executado direto (npm start).
+// Nos testes, o app é importado sem abrir a porta.
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Servidor rodando na porta ${PORT}`);
+    });
+}
+
+module.exports = app;

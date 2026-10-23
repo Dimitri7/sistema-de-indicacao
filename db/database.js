@@ -1,6 +1,11 @@
 // db/database.js
 const sqlite3 = require('sqlite3').verbose();
-const DBSOURCE = "db.sqlite";
+// Nos testes usamos DB_PATH=":memory:" (banco temporário em memória)
+const DBSOURCE = process.env.DB_PATH || "db.sqlite";
+
+// Promessa que resolve quando a tabela "users" está pronta para uso
+let marcarComoPronto;
+const ready = new Promise((resolve) => { marcarComoPronto = resolve; });
 
 const db = new sqlite3.Database(DBSOURCE, (err) => {
     if (err) {
@@ -26,8 +31,11 @@ const db = new sqlite3.Database(DBSOURCE, (err) => {
                 // A tabela acabou de ser criada
                 console.log('Tabela "users" criada com sucesso.');
             }
+            marcarComoPronto();
         });
     }
 });
+
+db.ready = ready;
 
 module.exports = db;

@@ -36,9 +36,13 @@ Uma aplicação **SPA (Single Page Application)** construída do zero, que imple
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
+### **Testes**
+![Jest](https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white)
+![Supertest](https://img.shields.io/badge/Supertest-000000?style=for-the-badge)
+
 ---
 
-## 🚀 Instalação e Execução Local
+## 🚀 Como rodar
 
 Siga os passos abaixo para rodar o projeto em sua máquina.
 
@@ -50,7 +54,7 @@ Siga os passos abaixo para rodar o projeto em sua máquina.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/Dimitri7/sistema-de-indicacao.git](https://github.com/Dimitri7/sistema-de-indicacao.git)
+    git clone https://github.com/Dimitri7/sistema-de-indicacao.git
     ```
 
 2.  **Navegue até o diretório do projeto:**
@@ -72,6 +76,26 @@ Siga os passos abaixo para rodar o projeto em sua máquina.
 5.  **Abra o front-end no navegador:**
     -   No VS Code, clique com o botão direito no arquivo `index.html`.
     -   Escolha a opção **"Open with Live Server"**.
+
+---
+
+## 🧪 Testes
+
+A API tem **testes automatizados de integração** escritos com [Jest](https://jestjs.io/) e [Supertest](https://github.com/ladjs/supertest). O Supertest faz requisições HTTP reais para o app Express, sem precisar abrir uma porta, e cada arquivo de teste usa um **banco SQLite em memória**, então o `db.sqlite` local nunca é alterado.
+
+Para rodar:
+
+```bash
+npm test
+```
+
+**O que é testado (19 testes):**
+
+| Arquivo | Cobre |
+|---|---|
+| `tests/cadastro.test.js` | Cadastro com código de indicação de 6 caracteres e 0 pontos · senha nunca devolvida na resposta · senha guardada com hash bcrypt · campos obrigatórios (400) · e-mail duplicado (409) |
+| `tests/login.test.js` | Login devolve um JWT com o id do usuário e validade de 1 hora · senha errada (401) · e-mail inexistente recebe a mesma mensagem de senha errada, para não revelar quais e-mails existem · campos obrigatórios (400) |
+| `tests/indicacao.test.js` | +1 ponto para quem indica · pontos acumulam e os indicados aparecem no dashboard · quem foi indicado não ganha ponto · código inexistente não pontua · cadastro que falha não dá ponto (transação desfeita) · dashboard exige token válido (401) |
 
 ---
 
