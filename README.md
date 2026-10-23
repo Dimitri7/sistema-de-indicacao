@@ -5,6 +5,8 @@
 
 Uma aplicação **SPA (Single Page Application)** construída do zero, que implementa um sistema de cadastro de usuários e **pontuação por indicação**. Este projeto foi desenvolvido como parte de um **desafio técnico** para demonstrar habilidades em desenvolvimento full-stack com tecnologias modernas.
 
+🔗 **Acesse online:** [sistema-de-indicacao-i388.onrender.com](https://sistema-de-indicacao-i388.onrender.com)
+
 ---
 
 ## 📸 Screenshot
@@ -104,6 +106,20 @@ npm test
 | `tests/login.test.js` | Login devolve um JWT com o id do usuário e validade de 1 hora · senha errada (401) · e-mail inexistente recebe a mesma mensagem de senha errada, para não revelar quais e-mails existem · campos obrigatórios (400) |
 | `tests/indicacao.test.js` | +1 ponto para quem indica · pontos acumulam e os indicados aparecem no dashboard · quem foi indicado não ganha ponto · código inexistente não pontua · cadastro que falha não dá ponto (transação desfeita) · dashboard exige token válido (401) |
 | `tests/servidor.test.js` | Front-end e API servidos pelo Express · arquivos internos (`db.sqlite`, código-fonte, `package.json`) **não** ficam acessíveis pelo navegador · sem `JWT_SECRET` o servidor se recusa a subir em produção |
+
+---
+
+## ☁️ Deploy
+
+O projeto está publicado no **[Render](https://render.com)** (plano gratuito): **https://sistema-de-indicacao-i388.onrender.com**
+
+| Configuração | Valor |
+|---|---|
+| Build Command | `npm install` |
+| Start Command | `npm start` |
+| Variável de ambiente | `JWT_SECRET` (gerada pelo Render) |
+
+> **Sobre o plano gratuito:** o servidor "dorme" após cerca de 15 minutos sem acessos, então o primeiro acesso pode levar até 1 minuto. O banco SQLite fica no disco temporário do Render, ou seja, as contas criadas são apagadas quando o serviço reinicia. Para uma demonstração isso é suficiente; em produção, o próximo passo seria trocar o SQLite por um banco gerenciado (ex.: PostgreSQL).
 
 ---
 
