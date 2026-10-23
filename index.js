@@ -1,4 +1,5 @@
 // index.js
+const path = require('path');
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -9,8 +10,12 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
+// Front-end (index.html, style.css, app.js) servido pelo próprio Express.
+// Só a pasta public/ fica acessível — o banco e o código não.
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Uma rota de teste para ver se tudo está funcionando
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.json({ message: "API do Sistema de Indicação está funcionando!" });
 });
 

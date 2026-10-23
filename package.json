@@ -34,5 +34,8 @@
     "setupFiles": [
       "<rootDir>/tests/setup.js"
     ]
+  },
+  "engines": {
+    "node": ">=20"
   }
 }

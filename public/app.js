@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutButton = document.getElementById('logout-button');
     const copyButton = document.getElementById('copy-button');
 
-    const API_URL = 'http://localhost:3000/api/users';
+    const API_URL = '/api/users';
 
     // --- 2. FUNÇÕES DE NAVEGAÇÃO ---
     function navigateTo(viewId) {

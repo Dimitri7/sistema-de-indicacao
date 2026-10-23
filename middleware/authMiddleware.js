@@ -1,5 +1,6 @@
 // middleware/authMiddleware.js
 const jwt = require('jsonwebtoken');
+const { JWT_SECRET } = require('../config/auth');
 
 module.exports = (req, res, next) => {
     try {
@@ -7,7 +8,7 @@ module.exports = (req, res, next) => {
         const token = req.headers.authorization.split(' ')[1];
 
         // Verifica se o token é válido usando o mesmo segredo que usamos para criá-lo
-        const decodedToken = jwt.verify(token, 'SEU_SEGREDO_JWT_SUPER_SECRETO');
+        const decodedToken = jwt.verify(token, JWT_SECRET);
 
         // Adiciona os dados do usuário (que estavam no token) ao objeto 'req'
         // para que as próximas rotas possam usá-los

@@ -2,6 +2,7 @@
 const userModel = require('../models/userModel');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const { JWT_SECRET } = require('../config/auth');
 
 // Função para lidar com o REGISTRO de um novo usuário
 exports.register = async (req, res) => {
@@ -62,7 +63,7 @@ exports.login = async (req, res) => {
 
         const token = jwt.sign(
             payload,
-            'SEU_SEGREDO_JWT_SUPER_SECRETO', // IMPORTANTE: Em um projeto real, isso deve ser mais seguro!
+            JWT_SECRET, // vem da variável de ambiente (veja config/auth.js)
             { expiresIn: '1h' } // O passaporte expira em 1 hora
         );
 

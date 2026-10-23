@@ -67,15 +67,22 @@ Siga os passos abaixo para rodar o projeto em sua máquina.
     npm install
     ```
 
-4.  **Inicie o servidor back-end:**
+4.  **Inicie o servidor:**
     ```bash
     npm start
     ```
-    O servidor estará rodando em `http://localhost:3000`.
 
-5.  **Abra o front-end no navegador:**
-    -   No VS Code, clique com o botão direito no arquivo `index.html`.
-    -   Escolha a opção **"Open with Live Server"**.
+5.  **Abra no navegador:** `http://localhost:3000`
+
+    O próprio Express entrega o front-end (pasta `public/`) e a API (`/api/users`), no mesmo endereço.
+
+### **Variáveis de ambiente**
+
+| Variável | Para que serve | Padrão local |
+|---|---|---|
+| `PORT` | Porta do servidor | `3000` |
+| `JWT_SECRET` | Chave que assina os tokens de login. **Obrigatória em produção:** sem ela o servidor não sobe. | chave só de desenvolvimento |
+| `DB_PATH` | Arquivo do banco SQLite | `db.sqlite` |
 
 ---
 
@@ -89,13 +96,14 @@ Para rodar:
 npm test
 ```
 
-**O que é testado (19 testes):**
+**O que é testado (28 testes):**
 
 | Arquivo | Cobre |
 |---|---|
 | `tests/cadastro.test.js` | Cadastro com código de indicação de 6 caracteres e 0 pontos · senha nunca devolvida na resposta · senha guardada com hash bcrypt · campos obrigatórios (400) · e-mail duplicado (409) |
 | `tests/login.test.js` | Login devolve um JWT com o id do usuário e validade de 1 hora · senha errada (401) · e-mail inexistente recebe a mesma mensagem de senha errada, para não revelar quais e-mails existem · campos obrigatórios (400) |
 | `tests/indicacao.test.js` | +1 ponto para quem indica · pontos acumulam e os indicados aparecem no dashboard · quem foi indicado não ganha ponto · código inexistente não pontua · cadastro que falha não dá ponto (transação desfeita) · dashboard exige token válido (401) |
+| `tests/servidor.test.js` | Front-end e API servidos pelo Express · arquivos internos (`db.sqlite`, código-fonte, `package.json`) **não** ficam acessíveis pelo navegador · sem `JWT_SECRET` o servidor se recusa a subir em produção |
 
 ---
 
